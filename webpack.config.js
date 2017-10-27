@@ -24,16 +24,13 @@ module.exports = {
     }]
   },
 
+  watch: true,
+
   plugins: [
-    new BrowserSyncPlugin(
-      {
+    new BrowserSyncPlugin({
         host: 'localhost',
         port: 3000,
-        proxy: 'http://localhost:3100/'
-      },
-      {
-        reload: false
-      }
-    )
+        server: './'
+      }),
   ]
 };
