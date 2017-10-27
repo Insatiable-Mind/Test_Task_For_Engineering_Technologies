@@ -86,10 +86,7 @@ body {
       justify-content: space-around;
   height: 50rem;
 }
-.map {
-  width: 45%;
-  border: 0.1rem solid #000;
-}
+.map,
 .graph {
   width: 45%;
   border: 0.1rem solid #000;
