@@ -33,7 +33,7 @@ body {
 .filter__input {
   margin-right: .5rem;
   padding: .5rem 2rem;
-  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  border: 0.2rem solid #cccccc;
 }
 .filter__input:hover,
 .filter__input:focus {
@@ -45,7 +45,7 @@ body {
   font-weight: bold;
   color: #000;
   background-color: #fff;
-  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  border: 0.2rem solid #cccccc;
   border-radius: 2.5rem;
 }
 .filter__submit:hover,
@@ -82,7 +82,7 @@ body {
   box-sizing: border-box;
   width: 25%;
   text-align: center;
-  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  border: 0.2rem solid #cccccc;
 }
 .data-table__column-name {
   padding: 1rem .5rem;
@@ -103,5 +103,5 @@ body {
 .map,
 .graph {
   width: 48%;
-  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  border: 0.2rem solid #cccccc;
 }
