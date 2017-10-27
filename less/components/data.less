@@ -1,6 +1,13 @@
+.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 40rem;
+}
+
 .data-table {
-  width: 100%;
-  margin-bottom: 5rem;
+  width: 35%;
+  height: 100%;
 
   border-spacing: 0;
   border-collapse: collapse;
@@ -22,7 +29,7 @@
 }
 
 .data-table__column-name {
-  padding: 1rem 0;
+  padding: 1rem .5rem;
 
   font-size: 1.8rem;
   color: @color-quinary;
@@ -31,5 +38,18 @@
 }
 
 .data-table__cell {
-  padding: .5rem 0;
+  padding: .5rem .5rem;
+}
+
+.additions {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.map,
+.graph {
+  width: 48%;
+
+  border: .2rem solid @color-quaternary;
 }

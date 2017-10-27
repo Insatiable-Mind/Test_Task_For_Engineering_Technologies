@@ -57,9 +57,18 @@ body {
 .filter__submit {
   margin-right: 1rem;
 }
+.data {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: stretch;
+      align-items: stretch;
+  height: 40rem;
+}
 .data-table {
-  width: 100%;
-  margin-bottom: 5rem;
+  width: 35%;
+  height: 100%;
   border-spacing: 0;
   border-collapse: collapse;
 }
@@ -75,23 +84,23 @@ body {
   border: 0.2rem solid rgba(0, 0, 0, 0.3);
 }
 .data-table__column-name {
-  padding: 1rem 0;
+  padding: 1rem .5rem;
   font-size: 1.8rem;
   color: #fff;
   background-color: #0086b3;
 }
 .data-table__cell {
-  padding: .5rem 0;
+  padding: .5rem .5rem;
 }
 .additions {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  height: 50rem;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  width: 60%;
 }
 .map,
 .graph {
-  width: 45%;
+  width: 48%;
   border: 0.2rem solid rgba(0, 0, 0, 0.3);
 }
