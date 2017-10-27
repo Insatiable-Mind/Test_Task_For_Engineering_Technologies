@@ -8,25 +8,29 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <h1 class="page-header">Тестовое задание</h1>
-  <form class="filter" action="#">
-    <label class="filter__label" for="search">Y больше либо равен</label>
-    <input class="filter__input" id="search" type="search">
-    <button class="filter__submit" type="submit">Фильтровать</button>
-    <button  class="filter__reset"type="reset">Очистить фильтр</button>
-  </form>
-  <table class="data-table">
-    <thead class="data-table__header">
-      <tr>
-        <th class="data-table__column-name">lat</th>
-        <th class="data-table__column-name">lng</th>
-        <th class="data-table__column-name">x</th>
-        <th class="data-table__column-name">y</th>
-      </tr>
-    </thead>
-  </table>
-  <div class="map"></div>
-  <div class="graph"></div>
+  <main class="main">
+    <h1 class="page-header">Тестовое задание</h1>
+    <form class="filter" action="#">
+      <label class="filter__label" for="search">Y больше либо равен</label>
+      <input class="filter__input" id="search" type="search">
+      <button class="filter__submit" type="submit">Фильтровать</button>
+      <button  class="filter__reset" type="reset">
+        Очистить фильтр
+      </button>
+    </form>
+    <table class="data-table">
+      <thead class="data-table__header">
+        <tr>
+          <th class="data-table__column-name">lat</th>
+          <th class="data-table__column-name">lng</th>
+          <th class="data-table__column-name">x</th>
+          <th class="data-table__column-name">y</th>
+        </tr>
+      </thead>
+    </table>
+    <div class="map"></div>
+    <div class="graph"></div>
+  </main>
   <script src="scripts/app.js"></script>
 </body>
 </html>
