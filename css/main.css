@@ -69,6 +69,7 @@ body {
 }
 .data-table__column-name,
 .data-table__cell {
+  box-sizing: border-box;
   width: 25%;
   text-align: center;
   border: 0.2rem solid rgba(0, 0, 0, 0.3);
@@ -76,7 +77,8 @@ body {
 .data-table__column-name {
   padding: 1rem 0;
   font-size: 1.8rem;
-  background-color: rgba(0, 134, 179, 0.05);
+  color: #fff;
+  background-color: #0086b3;
 }
 .data-table__cell {
   padding: .5rem 0;
