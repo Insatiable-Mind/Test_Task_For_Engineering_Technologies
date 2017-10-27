@@ -64,13 +64,14 @@ body {
   border-collapse: collapse;
 }
 .data-table__row:hover {
+  background-color: #f7f7f7;
   cursor: pointer;
 }
 .data-table__column-name,
 .data-table__cell {
   width: 25%;
   text-align: center;
-  border: 0.1rem solid #000;
+  border: 0.2rem solid rgba(0, 0, 0, 0.3);
 }
 .data-table__column-name {
   padding: 1rem 0;
