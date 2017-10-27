@@ -1,0 +1,96 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-width: 120rem;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: #000;
+}
+.main {
+  width: 80%;
+}
+.page-header {
+  margin: 5rem auto;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 3rem;
+  line-height: inherit;
+  text-align: center;
+}
+.filter {
+  margin-bottom: 3rem;
+}
+.filter__label {
+  margin-right: .5rem;
+  font-weight: bold;
+}
+.filter__input {
+  margin-right: .5rem;
+  padding: .5rem 2rem;
+  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+}
+.filter__input:hover,
+.filter__input:focus {
+  border-color: #0086b3;
+}
+.filter__submit,
+.filter__reset {
+  padding: .5rem 2rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 0.2rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 2.5rem;
+}
+.filter__submit:hover,
+.filter__reset:hover {
+  color: rgba(0, 0, 0, 0.75);
+  border-color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.filter__submit {
+  margin-right: 1rem;
+}
+.data-table {
+  width: 100%;
+  margin-bottom: 5rem;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.data-table__row:hover {
+  cursor: pointer;
+}
+.data-table__column-name,
+.data-table__cell {
+  text-align: center;
+  border: 0.1rem solid #000;
+}
+.data-table__column-name {
+  padding: 1rem 0;
+  font-size: 1.8rem;
+  background-color: rgba(0, 134, 179, 0.05);
+}
+.data-table__cell {
+  padding: .5rem 0;
+}
+.additions {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 50rem;
+}
+.map {
+  width: 45%;
+  border: 0.1rem solid #000;
+}
+.graph {
+  width: 45%;
+  border: 0.1rem solid #000;
+}
