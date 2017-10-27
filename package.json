@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Insatiable-Mind/Test_Task_For_Engineering_Technologies#readme",
   "devDependencies": {
+    "babel-loader": "^7.1.2",
     "d3": "^4.11.0",
     "leaflet": "^1.2.0",
     "webpack": "^3.8.1"
