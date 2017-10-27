@@ -1,0 +1,24 @@
+{
+  "name": "test_task_for_engineering_technologies",
+  "version": "1.0.0",
+  "description": "table, map and graph with interrelated data",
+  "main": "scripts/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Insatiable-Mind/Test_Task_For_Engineering_Technologies.git"
+  },
+  "author": "Olga Chernyakova / Insatiable_Mind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Insatiable-Mind/Test_Task_For_Engineering_Technologies/issues"
+  },
+  "homepage": "https://github.com/Insatiable-Mind/Test_Task_For_Engineering_Technologies#readme",
+  "devDependencies": {
+    "d3": "^4.11.0",
+    "leaflet": "^1.2.0",
+    "webpack": "^3.8.1"
+  }
+}
