@@ -91,5 +91,5 @@ body {
 .map,
 .graph {
   width: 45%;
-  border: 0.1rem solid #000;
+  border: 0.2rem solid rgba(0, 0, 0, 0.3);
 }
