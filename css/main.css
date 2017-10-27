@@ -50,8 +50,9 @@ body {
 }
 .filter__submit:hover,
 .filter__reset:hover {
-  color: rgba(0, 0, 0, 0.75);
-  border-color: #0086b3;
+  color: #fff;
+  background-color: #0086b3;
+  border-color: transparent;
   cursor: pointer;
 }
 .filter__submit {
