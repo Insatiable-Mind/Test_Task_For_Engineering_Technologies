@@ -4,23 +4,23 @@ module.exports = {
   entry: './scripts/main.js',
 
   output: {
-    filename: './scripts/app.js'
+    filename: './scripts/app.js',
   },
 
   module: {
     loaders: [
-      { test: /\.js$/, loader: "babel-loader" }
+      { test: /\.js$/, loader: "babel-loader" },
     ],
 
     rules: [{
         test: /\.less$/,
         use: [{
-            loader: "style-loader"
+            loader: "style-loader",
         }, {
-            loader: "css-loader"
+            loader: "css-loader",
         }, {
-            loader: "less-loader"
-        }]
+            loader: "less-loader",
+        }],
     }]
   },
 
@@ -30,7 +30,7 @@ module.exports = {
     new BrowserSyncPlugin({
         host: 'localhost',
         port: 3000,
-        server: './'
+        server: './',
       }),
-  ]
+  ],
 };
