@@ -19,11 +19,14 @@
   "devDependencies": {
     "babel-loader": "^7.1.2",
     "browser-sync": "^2.18.13",
-    "browser-sync-webpack-plugin": "^1.2.0",
     "d3": "^4.11.0",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.2",
+    "gulp-watch": "^4.3.11",
     "leaflet": "^1.2.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "less-plugin-autoprefix": "^1.5.1",
     "webpack": "^3.8.1"
   }
 }
