@@ -51,7 +51,7 @@ body {
 .filter__submit:hover,
 .filter__reset:hover {
   color: rgba(0, 0, 0, 0.75);
-  border-color: rgba(0, 0, 0, 0.4);
+  border-color: #0086b3;
   cursor: pointer;
 }
 .filter__submit {
