@@ -10,10 +10,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loader: "babel-loader" }
-    ]
-  }
+    ],
 
-  module: {
     rules: [{
         test: /\.less$/,
         use: [{
@@ -24,7 +22,7 @@ module.exports = {
             loader: "less-loader"
         }]
     }]
-  }
+  },
 
   plugins: [
     new BrowserSyncPlugin(
