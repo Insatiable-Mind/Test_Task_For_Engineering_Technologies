@@ -166,7 +166,7 @@ filter.addEventListener('reset', () => {
 
 "use strict";
 var map = L.map('map', {
-  center: [51.505, -0.09],
+  center: [55.751244, 37.618423],
   zoom: 13,
 });
 
