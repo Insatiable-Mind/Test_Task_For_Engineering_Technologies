@@ -23,7 +23,6 @@
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.2",
     "gulp-watch": "^4.3.11",
-    "leaflet": "^1.2.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "less-plugin-autoprefix": "^1.5.1",
