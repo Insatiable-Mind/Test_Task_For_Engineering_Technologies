@@ -125,6 +125,15 @@ function addElement(child, parent) {
   parent.appendChild(child);
 }
 
+function highlightTableRow(rows, target) {
+  rows.forEach((row) => {
+    row.classList.remove('data-table__row_active');
+    if (row === target) {
+      row.classList.add('data-table__row_active');
+    }
+  });
+}
+
 
 //*** MAP ***//
 const map = L.map('map', {
@@ -277,6 +286,7 @@ function highlightGraphBar(graphBars, target) {
 let table = document.querySelector('.data-table');
 
 table.addEventListener('click', (event) => {
+  let rows = document.querySelectorAll('.data-table__row');
   let target = event.target;
 
   showProperMarkers(markers, filteredData);
@@ -287,6 +297,7 @@ table.addEventListener('click', (event) => {
       target.lng = Number(target.childNodes[1].textContent);
       target.x = Number(target.childNodes[2].textContent);
 
+      highlightTableRow(rows, target);
       highlightMarker(markers, target);
       highlightGraphBar(graphBars, target);
       break;
