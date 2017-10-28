@@ -3,7 +3,7 @@ const data = [
 {lat: 51.592365, lng: 45.960804, x: 3, y: 2},
 {lat: 57.161297, lng: 65.525017, x: 1, y: 7},
 {lat: 55.164440, lng: 61.436844, x: 5, y: 3},
-{lat: 62.035454, lng: 129.675476, x: 1, y: 10},
+{lat: 62.035454, lng: 129.675476, x: 6, y: 10},
 {lat: 59.410412, lng: 56.791721, x: 7, y: 1},
 ];
 
@@ -125,6 +125,18 @@ function isEqual(marker, data) {
 //*** GRAPH ***//
 import * as d3 from "d3";
 
+d3.select(".graph")
+.selectAll("div")
+.data(data)
+.enter().append("div")
+.classed("graph__bar", true)
+.style("height", function(d) { return d['x'] * 5 + "rem"; })
+.style("width", function(d) { return 100 / data.length + "%"; })
+.text(function(d) { return d['x']; });
+
+let graphBars = document.querySelectorAll('.graph__bar');
+showGraphBars(data, graphBars);
+
 
 //*** EVENT LISTENERS ***//
 const filter = document.querySelector('.filter');
@@ -137,8 +149,8 @@ filter.addEventListener('submit', () => {
   filteredData = refreshArray(filterValue, data);
 
   buildTable(filteredData);
-
   showProperMarkers(markers, filteredData);
+  showGraphBars(filteredData, graphBars);
 });
 
 function refreshArray(filterValue, array) {
@@ -159,7 +171,35 @@ filter.addEventListener('reset', () => {
   markers.forEach((elem) => {
     elem.setOpacity(.5);
   });
+
+  graphBars.forEach((bar) => {
+    bar.style.opacity = '1';
+    bar.classList.remove('graph__bar_active');
+  });
 });
+
+
+function showGraphBars(dataArray, graphBars) {
+  graphBars.forEach((bar) => {
+    bar.style.opacity = '0';
+    bar.classList.remove('graph__bar_active');
+    for (let elem of dataArray) {
+      if (Number(bar.textContent) === elem['x']) {
+        bar.style.opacity = '1';
+      }
+    }
+  });
+}
+
+function highlightGraphBar(graphBars, target) {
+  for (let bar of graphBars) {
+    if (Number(bar.textContent) === target['x']) {
+      bar.classList.add('graph__bar_active');
+    } else {
+      bar.classList.remove('graph__bar_active');
+    }
+  }
+}
 
 
 let table = document.querySelector('.data-table');
@@ -173,8 +213,10 @@ table.addEventListener('click', (event) => {
     if (target.className === 'data-table__row') {
       target.lat = Number(target.childNodes[0].textContent);
       target.lng = Number(target.childNodes[1].textContent);
+      target.x = Number(target.childNodes[2].textContent);
 
       highlightMarker(markers, target);
+      highlightGraphBar(graphBars, target);
       break;
     }
 
