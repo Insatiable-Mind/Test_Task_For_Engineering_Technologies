@@ -161,10 +161,25 @@ function createMapMarker(lat, lng) {
   markers.push(marker);
 }
 
-function highlightProperMarkers(markerArray, data) {
-  markerArray.forEach((elem) => {
-    changeMarkerOpacity(elem, data);
+function showProperMarkers(markersArray, dataArray) {
+  markersArray.forEach((marker) => {
+    marker.setOpacity(0);
+    for (let elem of dataArray) {
+      if (isEqual(marker, elem)) {
+        marker.setOpacity(.5);
+        break;
+      }
+    }
   });
+}
+
+function highlightMarker(markersArray, target) {
+  for (let marker of markersArray) {
+    if (isEqual(marker, target)) {
+      marker.setOpacity(1);
+      break;
+    }
+  }
 }
 
 function isEqual(marker, data) {
@@ -178,14 +193,6 @@ function isEqual(marker, data) {
   return false;
 }
 
-function changeMarkerOpacity(marker, data) {
-  if (isEqual(marker, data)) {
-    marker.setOpacity(1);
-  } else {
-    marker.setOpacity(.5);
-  }
-}
-
 
 //*** GRAPH ***//
 
@@ -193,13 +200,17 @@ function changeMarkerOpacity(marker, data) {
 
 //*** EVENT LISTENERS ***//
 const filter = document.querySelector('.filter');
-let filteredData = [];
+let filteredData = [...data];
 
 filter.addEventListener('submit', () => {
+  filteredData = [];
   const filterValue = Math.floor(filter.querySelector('.filter__input').value);
+
   filteredData = refreshArray(filterValue, data);
 
   buildTable(filteredData);
+
+  showProperMarkers(markers, filteredData);
 });
 
 function refreshArray(filterValue, array) {
@@ -228,13 +239,14 @@ let table = document.querySelector('.data-table');
 table.addEventListener('click', (event) => {
   let target = event.target;
 
-  while (target != table) {
+  showProperMarkers(markers, filteredData);
+
+  while (target !== table) {
     if (target.className === 'data-table__row') {
-      let lat = Number(target.childNodes[0].textContent);
-      let lng = Number(target.childNodes[1].textContent);
+      target.lat = Number(target.childNodes[0].textContent);
+      target.lng = Number(target.childNodes[1].textContent);
 
-      highlightProperMarkers(markers, {lat, lng});
-
+      highlightMarker(markers, target);
       break;
     }
 
