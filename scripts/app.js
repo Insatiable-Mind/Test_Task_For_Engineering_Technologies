@@ -82,15 +82,19 @@ buildTable(data);
 
 function buildTable(array) {
   let table = document.querySelector('.data-table');
-  let row = table.querySelectorAll('.data-table__row');
+  let rows = table.querySelectorAll('.data-table__row');
 
-  if (row !== null) {
-    for (let i = 0; i < row.length; i += 1) {
-      table.removeChild(row[i]);
-    }
+  if (rows.length !== 0) {
+    deleteTableRows(rows, table);
   }
 
   buildTableRow(table, array);
+}
+
+function deleteTableRows(rows, table) {
+  rows.forEach((elem) => {
+    table.removeChild(elem);
+  });
 }
 
 function buildTableRow(table, array) {
@@ -133,8 +137,8 @@ filter.addEventListener('submit', () => {
 function refreshArray(filterValue, array) {
   let filtered = [];
 
-  filtered = array.filter((el) => {
-    return el['y'] >= filterValue;
+  filtered = array.filter((elem) => {
+    return elem['y'] >= filterValue;
   });
 
   return filtered;
@@ -145,6 +149,9 @@ filter.addEventListener('reset', () => {
 
   buildTable(filteredData);
 });
+
+
+//*** MAP ***//
 
 
 /***/ })
