@@ -83,4 +83,21 @@ filter.addEventListener('reset', () => {
 
 
 import './modules/map.js';
+
+showMapMarkers(data);
+
+function showMapMarkers(array) {
+  array.forEach((elem) => {
+    let lat = elem['lat'];
+    let lng = elem['lng'];
+
+    createMapMarker(lat, lng);
+  });
+}
+
+function createMapMarker(lat, lng) {
+  L.marker([lat, lng]).addTo(map);
+}
+
+
 import './modules/graph.js';

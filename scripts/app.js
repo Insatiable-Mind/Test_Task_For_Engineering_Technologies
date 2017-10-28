@@ -157,6 +157,23 @@ filter.addEventListener('reset', () => {
 
 
 
+showMapMarkers(data);
+
+function showMapMarkers(array) {
+  array.forEach((elem) => {
+    let lat = elem['lat'];
+    let lng = elem['lng'];
+
+    createMapMarker(lat, lng);
+  });
+}
+
+function createMapMarker(lat, lng) {
+  L.marker([lat, lng]).addTo(map);
+}
+
+
+
 
 
 /***/ }),
@@ -165,7 +182,9 @@ filter.addEventListener('reset', () => {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var map = L.map('map', {
+/* unused harmony export map */
+/* unused harmony export L */
+const map = L.map('map', {
   center: [55.751244, 37.618423],
   zoom: 13,
 });
@@ -181,7 +200,8 @@ map.locate({
 });
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (map);
+
+
 
 /***/ }),
 /* 3 */

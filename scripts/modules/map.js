@@ -1,4 +1,4 @@
-var map = L.map('map', {
+const map = L.map('map', {
   center: [55.751244, 37.618423],
   zoom: 13,
 });
@@ -14,4 +14,4 @@ map.locate({
 });
 
 
-export default map;
+export {map, L};
