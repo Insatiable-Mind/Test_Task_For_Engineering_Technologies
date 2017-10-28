@@ -53,3 +53,25 @@
 
   border: .2rem solid @color-quaternary;
 }
+
+.graph {
+  display: flex;
+  align-items: flex-end;
+}
+
+.graph__bar {
+  box-sizing: border-box;
+  padding-top: 1rem;
+
+  font-weight: bold;
+  text-align: center;
+  color: @color-quinary;
+
+  background-color: lighten(@color-secondary, 30%);
+  border: .1rem solid @color-quinary;
+  opacity: 0;
+}
+
+.graph__bar_active {
+  background-color: @color-secondary;
+}

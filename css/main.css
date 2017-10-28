@@ -105,3 +105,22 @@ body {
   width: 48%;
   border: 0.2rem solid #cccccc;
 }
+.graph {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+      align-items: flex-end;
+}
+.graph__bar {
+  box-sizing: border-box;
+  padding-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #4dd2ff;
+  border: 0.1rem solid #fff;
+  opacity: 0;
+}
+.graph__bar_active {
+  background-color: #0086b3;
+}
