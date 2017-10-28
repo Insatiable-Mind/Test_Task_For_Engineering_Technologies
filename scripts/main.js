@@ -107,10 +107,10 @@ function isEqual(marker, data) {
 }
 
 function changeMarkerOpacity(marker, data) {
-  marker.setOpacity(.5);
-
   if (isEqual(marker, data)) {
     marker.setOpacity(1);
+  } else {
+    marker.setOpacity(.5);
   }
 }
 
