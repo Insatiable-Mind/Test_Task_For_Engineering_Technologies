@@ -126,6 +126,67 @@ function addElement(child, parent) {
 }
 
 
+//*** MAP ***//
+const map = L.map('map', {
+  center: [60.9333333, 76.5666667],
+  zoom: 2,
+});
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  maxZoom: 13,
+  id: 'mapbox.streets',
+  accessToken: 'pk.eyJ1IjoiaW5zYXRpYWJsZS1taW5kIiwiYSI6ImNqOWIwaWdrNjFjdDIzM24ya21qbGJuMzQifQ.EIK16areNxtGW7AyBTug6A',
+}).addTo(map);
+
+let markers = [];
+
+showMapMarkers(data);
+
+
+function showMapMarkers(dataArray) {
+  dataArray.forEach((elem) => {
+    const lat = elem['lat'];
+    const lng = elem['lng'];
+
+    createMapMarker(lat, lng);
+  });
+}
+
+function createMapMarker(lat, lng) {
+  let marker = L.marker(
+    [lat, lng],
+    {opacity: .5}
+    ).addTo(map);
+
+  markers.push(marker);
+}
+
+function highlightProperMarkers(markerArray, data) {
+  markerArray.forEach((elem) => {
+    compareMarkerWithData(elem, data);
+  });
+}
+
+function compareMarkerWithData(marker, data) {
+  let lat = marker.getLatLng()['lat'];
+  let lng = marker.getLatLng()['lng'];
+
+  changeMarkerOpacity(marker, .5);
+
+  if (data['lat'] === lat && data['lng'] === lng) {
+    changeMarkerOpacity(marker, 1);
+  }
+}
+
+function changeMarkerOpacity(marker, opacity) {
+  marker.setOpacity(opacity);
+}
+
+
+//*** GRAPH ***//
+
+
+
 //*** EVENT LISTENERS ***//
 const filter = document.querySelector('.filter');
 let filteredData = [];
@@ -151,44 +212,31 @@ filter.addEventListener('reset', () => {
   filteredData = [...data];
 
   buildTable(filteredData);
-});
 
-
-//*** MAP ***//
-const map = L.map('map', {
-  center: [60.9333333, 76.5666667],
-  zoom: 2,
-});
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-  maxZoom: 13,
-  id: 'mapbox.streets',
-  accessToken: 'pk.eyJ1IjoiaW5zYXRpYWJsZS1taW5kIiwiYSI6ImNqOWIwaWdrNjFjdDIzM24ya21qbGJuMzQifQ.EIK16areNxtGW7AyBTug6A',
-}).addTo(map);
-
-map.locate({
-  setView: true,
-  maxZoom: 5,
-});
-
-showMapMarkers(data);
-
-function showMapMarkers(array) {
-  array.forEach((elem) => {
-    let lat = elem['lat'];
-    let lng = elem['lng'];
-
-    createMapMarker(lat, lng);
+  markers.forEach((elem) => {
+    changeMarkerOpacity(elem, .5);
   });
-}
-
-function createMapMarker(lat, lng) {
-  L.marker([lat, lng]).addTo(map);
-}
+});
 
 
-//*** GRAPH ***//
+let table = document.querySelector('.data-table');
 
+table.addEventListener('click', (event) => {
+  let target = event.target;
+
+  while (target != table) {
+    if (target.className === 'data-table__row') {
+      let lat = Number(target.childNodes[0].textContent);
+      let lng = Number(target.childNodes[1].textContent);
+
+      highlightProperMarkers(markers, {lat, lng});
+
+      break;
+    }
+
+    target = target.parentNode;
+  }
+});
 
 
 /***/ }),
