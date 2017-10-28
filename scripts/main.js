@@ -82,4 +82,5 @@ filter.addEventListener('reset', () => {
 });
 
 
-//*** MAP ***//
+import './modules/map.js';
+import './modules/graph.js';
