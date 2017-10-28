@@ -69,8 +69,7 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modules_map_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modules_graph_js__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3__ = __webpack_require__(175);
 const data = [
 {lat: 55.751244, lng: 37.618423, x: 2, y: 5},
 {lat: 51.592365, lng: 45.960804, x: 3, y: 2},
@@ -155,7 +154,21 @@ filter.addEventListener('reset', () => {
 });
 
 
+//*** MAP ***//
+const map = L.map('map', {
+  center: [55.751244, 37.618423],
+  zoom: 13,
+});
 
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+  maxZoom: 18,
+  id: 'mapbox.streets',
+  accessToken: 'pk.eyJ1IjoiaW5zYXRpYWJsZS1taW5kIiwiYSI6ImNqOWIwaWdrNjFjdDIzM24ya21qbGJuMzQifQ.EIK16areNxtGW7AyBTug6A',
+}).addTo(map);
+
+map.locate({
+  setView: true,
+});
 
 showMapMarkers(data);
 
@@ -173,37 +186,13 @@ function createMapMarker(lat, lng) {
 }
 
 
+//*** GRAPH ***//
 
 
 
 /***/ }),
 /* 1 */,
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export map */
-/* unused harmony export L */
-const map = L.map('map', {
-  center: [55.751244, 37.618423],
-  zoom: 13,
-});
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-  maxZoom: 18,
-  id: 'mapbox.streets',
-  accessToken: 'pk.eyJ1IjoiaW5zYXRpYWJsZS1taW5kIiwiYSI6ImNqOWIwaWdrNjFjdDIzM24ya21qbGJuMzQifQ.EIK16areNxtGW7AyBTug6A',
-}).addTo(map);
-
-map.locate({
-  setView: true,
-});
-
-
-
-
-
-/***/ }),
+/* 2 */,
 /* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9438,14 +9427,7 @@ function transform(node) {
 
 
 /***/ }),
-/* 174 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3__ = __webpack_require__(175);
-
-
-/***/ }),
+/* 174 */,
 /* 175 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
