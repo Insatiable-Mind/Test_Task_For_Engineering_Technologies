@@ -77,6 +77,9 @@ body {
   background-color: #f7f7f7;
   cursor: pointer;
 }
+.data-table__row_active {
+  color: #0086b3;
+}
 .data-table__column-name,
 .data-table__cell {
   box-sizing: border-box;
