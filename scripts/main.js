@@ -91,23 +91,27 @@ function createMapMarker(lat, lng) {
 
 function highlightProperMarkers(markerArray, data) {
   markerArray.forEach((elem) => {
-    compareMarkerWithData(elem, data);
+    changeMarkerOpacity(elem, data);
   });
 }
 
-function compareMarkerWithData(marker, data) {
+function isEqual(marker, data) {
   let lat = marker.getLatLng()['lat'];
   let lng = marker.getLatLng()['lng'];
 
-  changeMarkerOpacity(marker, .5);
-
   if (data['lat'] === lat && data['lng'] === lng) {
-    changeMarkerOpacity(marker, 1);
+    return true;
   }
+
+  return false;
 }
 
-function changeMarkerOpacity(marker, opacity) {
-  marker.setOpacity(opacity);
+function changeMarkerOpacity(marker, data) {
+  marker.setOpacity(.5);
+
+  if (isEqual(marker, data)) {
+    marker.setOpacity(1);
+  }
 }
 
 
@@ -142,7 +146,7 @@ filter.addEventListener('reset', () => {
   buildTable(filteredData);
 
   markers.forEach((elem) => {
-    changeMarkerOpacity(elem, .5);
+    elem.setOpacity(.5);
   });
 });
 
