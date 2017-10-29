@@ -74,12 +74,15 @@ body {
   border-spacing: 0;
   border-collapse: collapse;
 }
+.data-table__row {
+  transition: color 0.2s ease-in, background-color 0.2s ease-in;
+}
 .data-table__row:hover {
-  background-color: #f7f7f7;
+  color: #0086b3;
   cursor: pointer;
 }
 .data-table__row_active {
-  color: #0086b3;
+  background-color: #e6e6e6;
 }
 .data-table__column-name,
 .data-table__cell {
@@ -92,7 +95,7 @@ body {
   padding: 1rem .5rem;
   font-size: 1.8rem;
   color: #fff;
-  background-color: #0086b3;
+  background-color: #00ace6;
 }
 .data-table__cell {
   padding: .5rem .5rem;

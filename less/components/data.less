@@ -13,14 +13,18 @@
   border-collapse: collapse;
 }
 
-.data-table__row:hover {
-  background-color: darken(@color-quinary, 3%);
+.data-table__row {
+  transition: color .2s ease-in, background-color .2s ease-in;
 
-  cursor: pointer;
+  &:hover {
+    color: @color-secondary;
+
+    cursor: pointer;
+  }
 }
 
 .data-table__row_active {
-  color: @color-secondary;
+  background-color: lighten(@color-primary, 90%);
 }
 
 .data-table__column-name,
@@ -38,7 +42,7 @@
   font-size: 1.8rem;
   color: @color-quinary;
 
-  background-color: @color-secondary;
+  background-color: lighten(@color-secondary, 10%);
 }
 
 .data-table__cell {
