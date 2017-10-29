@@ -47,6 +47,7 @@ body {
   background-color: #fff;
   border: 0.2rem solid #cccccc;
   border-radius: 2.5rem;
+  transition: all 0.2s ease-in-out;
 }
 .filter__submit:hover,
 .filter__reset:hover {
