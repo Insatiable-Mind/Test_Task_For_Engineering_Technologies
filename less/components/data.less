@@ -63,19 +63,31 @@
   align-items: flex-end;
 }
 
-.graph__bar {
-  box-sizing: border-box;
-  padding-top: 1rem;
+.graph__bar-rect {
+  fill: lighten(@color-secondary, 30%);
+  stroke: @color-quinary;
+  stroke-width: .2rem;
 
-  font-weight: bold;
-  text-align: center;
-  color: @color-quinary;
-
-  background-color: lighten(@color-secondary, 30%);
-  border: .1rem solid @color-quinary;
-  opacity: 0;
+  transition: fill .2s ease-in;
 }
 
-.graph__bar_active {
-  background-color: @color-secondary;
+.graph__bar-rect_active {
+  fill: @color-secondary;
+}
+
+.graph__x-text {
+  font-weight: bold;
+
+  fill: @color-quinary;
+}
+
+.graph__y-text {
+  font-size: 1.4rem;
+
+  fill: lighten(@color-primary, 60%);
+}
+
+.graph__ruler-guide {
+  stroke: lighten(@color-primary, 60%);
+  stroke-width: 1;
 }
