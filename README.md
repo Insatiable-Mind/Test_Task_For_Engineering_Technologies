@@ -22,6 +22,7 @@
 - карта на Leaflet
 - верстка HTML5 + CSS3, без фреймворков
 - препроцессор Less
+- методология БЭМ
 - стайлгайд для Javascript - Airbnb (https://github.com/airbnb/javascript)
 - стайлгайд для HTML, CSS - @mdo (http://codeguide.co/)
 - Webpack для D3.js и ES6
