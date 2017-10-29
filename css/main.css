@@ -34,6 +34,7 @@ body {
   margin-right: .5rem;
   padding: .5rem 2rem;
   border: 0.2rem solid #cccccc;
+  transition: border-color 0.2s ease-in-out;
 }
 .filter__input:hover,
 .filter__input:focus {
