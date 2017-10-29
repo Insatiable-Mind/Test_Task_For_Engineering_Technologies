@@ -134,17 +134,103 @@ function isEqual(marker, data) {
 //*** GRAPH ***//
 import * as d3 from "d3";
 
-d3.select(".graph")
-.selectAll("div")
-.data(data)
-.enter().append("div")
-.classed("graph__bar", true)
-.style("height", function(d) { return d['x'] * 5 + "rem"; })
-.style("width", function(d) { return 100 / data.length + "%"; })
-.text(function(d) { return d['x']; });
+let xArray = getSortedArray(data, 'x');
+let yArray = getSortedArray(data, 'y');
+
+function getSortedArray(array, property) {
+  let result = [];
+
+  array.forEach((elem) => {
+    result.push(elem[property]);
+  });
+
+  return sort(result);
+}
+
+function sort(array) {
+  return array.sort((a, b) => {
+    return a - b;
+  });
+}
+
+const graph = d3.select(".graph");
+let graphNode = document.querySelector('.graph');
+let graphWidth = graphNode.clientWidth - 40;
+let graphHeight = graphNode.clientHeight;
+let width = graphWidth / xArray.length;
+let height = 30;
+
+
+graph.selectAll("g")
+  .data(yArray)
+  .enter().append("g")
+  .classed("graph__bar", true);
+
+graph.selectAll("svg")
+  .data(yArray)
+  .enter().append("line")
+  .classed("graph__ruler-guide", true)
+  .attr("x1", 0)
+  .attr("x2", 5)
+  .attr("y1", function(d) { return graphHeight - (d * height); })
+  .attr("y2", function(d) { return graphHeight - (d * height); });
+
+graph.selectAll("g")
+  .data(yArray)
+  .append("rect")
+  .classed("graph__bar-rect", true)
+  .attr("height", function(d) { return d * height; })
+  .attr("width", width)
+  .attr("x", function(d, i) { return i * width + 40; })
+  .attr("y", function(d) { return graphHeight - (d * height); });
+
+graph.selectAll("g")
+  .data(xArray)
+  .append("text")
+  .classed("graph__x-text", true)
+  .text(function(d) { return d; })
+  .attr("x", function(d, i) { return (i * width) + (width / 2.3) + 40; })
+  .attr("y", function(d) { return graphHeight - 7; });
+
+graph.selectAll("svg")
+  .data(yArray)
+  .enter().append("text")
+  .classed("graph__y-text", true)
+  .text(function(d) { return d; })
+  .attr("x", 7)
+  .attr("y", function(d) { return graphHeight - (d * height) + 4; });
+
 
 let graphBars = document.querySelectorAll('.graph__bar');
 showGraphBars(data, graphBars);
+
+function showGraphBars(dataArray, graphBars) {
+  graphBars.forEach((bar) => {
+    let graphBarRect = bar.querySelector('.graph__bar-rect');
+    let graphBarX = bar.querySelector('.graph__x-text');
+
+    graphBarRect.style.opacity = '0';
+    graphBarRect.classList.remove('graph__bar-rect_active');
+    for (let elem of dataArray) {
+      if (Number(graphBarX.textContent) === elem['x']) {
+        graphBarRect.style.opacity = '1';
+      }
+    }
+  });
+}
+
+function highlightGraphBar(graphBars, target) {
+  for (let bar of graphBars) {
+    let graphBarRect = bar.querySelector('.graph__bar-rect');
+    let graphBarX = bar.querySelector('.graph__x-text');
+
+    if (Number(graphBarX.textContent) === target['x']) {
+      graphBarRect.classList.add('graph__bar-rect_active');
+    } else {
+      graphBarRect.classList.remove('graph__bar-rect_active');
+    }
+  }
+}
 
 
 //*** EVENT LISTENERS ***//
@@ -182,33 +268,12 @@ filter.addEventListener('reset', () => {
   });
 
   graphBars.forEach((bar) => {
-    bar.style.opacity = '1';
-    bar.classList.remove('graph__bar_active');
+    let graphBarRect = bar.querySelector('.graph__bar-rect');
+
+    graphBarRect.style.opacity = '1';
+    graphBarRect.classList.remove('graph__bar-rect_active');
   });
 });
-
-
-function showGraphBars(dataArray, graphBars) {
-  graphBars.forEach((bar) => {
-    bar.style.opacity = '0';
-    bar.classList.remove('graph__bar_active');
-    for (let elem of dataArray) {
-      if (Number(bar.textContent) === elem['x']) {
-        bar.style.opacity = '1';
-      }
-    }
-  });
-}
-
-function highlightGraphBar(graphBars, target) {
-  for (let bar of graphBars) {
-    if (Number(bar.textContent) === target['x']) {
-      bar.classList.add('graph__bar_active');
-    } else {
-      bar.classList.remove('graph__bar_active');
-    }
-  }
-}
 
 
 let table = document.querySelector('.data-table');
