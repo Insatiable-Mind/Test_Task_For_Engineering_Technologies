@@ -21,9 +21,9 @@
 - график на D3.js
 - карта на Leaflet
 - верстка HTML5 + CSS3, без фреймворков
-- препроцессор Less
+- препроцессор LESS
 - методология БЭМ
-- стайлгайд для Javascript - Airbnb (https://github.com/airbnb/javascript)
+- стайлгайд для JavaScript - Airbnb (https://github.com/airbnb/javascript)
 - стайлгайд для HTML, CSS - @mdo (http://codeguide.co/)
 - Webpack для D3.js и ES6
 - Gulp для Less, LessAutoprefix, BrowserSync
